@@ -1,14 +1,10 @@
-// import * as LocalAuthentication from "expo-local-authentication";
+import * as LocalAuthentication from "expo-local-authentication";
 
 /**
  * Checks biometric availability and triggers authentication.
  * Returns true if authentication succeeds.
  */
 export const authorizedBiometrics = async (): Promise<boolean> => {
-  // Returning false directly during development triggers the passcode fallback UI
-  return false;
-
-  /*
   try {
     const hasHardware = await LocalAuthentication.hasHardwareAsync();
     if (!hasHardware) {
@@ -31,5 +27,4 @@ export const authorizedBiometrics = async (): Promise<boolean> => {
     console.error("Biometric authentication error:", error);
     return false;
   }
-  */
 };

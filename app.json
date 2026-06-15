@@ -36,7 +36,13 @@
           }
         }
       ],
-      "expo-sqlite"
+      "expo-sqlite",
+      [
+        "expo-local-authentication",
+        {
+          "faceIDPermission": "Allow TrackWise to use Face ID for authentication."
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true,
