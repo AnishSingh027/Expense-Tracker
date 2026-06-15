@@ -2,6 +2,7 @@ import { Stack } from "expo-router";
 import { TransactionProvider } from "../context/TransactionContext";
 import { useEffect } from "react";
 import { initializeTables } from "../database/db";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
 export default function RootLayout() {
   useEffect(() => {
@@ -9,10 +10,12 @@ export default function RootLayout() {
   }, []);
 
   return (
-    <TransactionProvider>
-      <Stack screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="(tabs)" />
-      </Stack>
-    </TransactionProvider>
+    <SafeAreaProvider>
+      <TransactionProvider>
+        <Stack screenOptions={{ headerShown: false }}>
+          <Stack.Screen name="(tabs)" />
+        </Stack>
+      </TransactionProvider>
+    </SafeAreaProvider>
   );
 }

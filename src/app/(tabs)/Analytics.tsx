@@ -111,9 +111,13 @@ export default function Analytics() {
           yest.setDate(yest.getDate() - 1);
           day = yest.getDate();
         } else {
-          const match = tx.date.match(/[A-Za-z]+\s+(\d+)/);
-          if (match && match[1]) {
-            day = parseInt(match[1]);
+          const datePart = tx.date.split(',')[0].trim();
+          const numbers = datePart.match(/\d+/g);
+          if (numbers) {
+            const dayNum = numbers.find((num) => num.length !== 4);
+            if (dayNum) {
+              day = parseInt(dayNum, 10);
+            }
           }
         }
         const weekIndex = Math.min(Math.floor((day - 1) / 7), 3);
@@ -132,7 +136,7 @@ export default function Analytics() {
 
 
   return (
-    <SafeAreaView style={globalStyles.safeArea}>
+    <SafeAreaView style={globalStyles.safeArea} edges={["top", "left", "right"]}>
       <StatusBar style="light" />
       <ScrollView contentContainerStyle={{ paddingBottom: 40 }}>
         <View style={globalStyles.container}>

@@ -97,7 +97,7 @@ export default function Transactions() {
 
 
   return (
-    <SafeAreaView style={globalStyles.safeArea}>
+    <SafeAreaView style={globalStyles.safeArea} edges={["top", "left", "right"]}>
       <StatusBar style="light" />
       <ScrollView contentContainerStyle={{ paddingBottom: 40 }}>
         <View style={globalStyles.container}>

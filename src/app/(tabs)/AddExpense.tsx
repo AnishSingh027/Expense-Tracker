@@ -160,7 +160,7 @@ export default function AddExpense() {
 
 
   return (
-    <SafeAreaView style={globalStyles.safeArea}>
+    <SafeAreaView style={globalStyles.safeArea} edges={["top", "left", "right"]}>
       <StatusBar style="light" />
       <KeyboardAvoidingView
         behavior={Platform.OS === "ios" ? "padding" : "height"}
